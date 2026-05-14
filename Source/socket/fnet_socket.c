@@ -47,7 +47,7 @@ void fnet_socket_release(int protocol, fnet_socket_if_t *sock)
 
     if ((prot = _fnet_prot_find(protocol)) == 0)
     {
-        return FNET_NULL;
+        return;
     }
 
     _fnet_socket_desc_free(sock->descriptor);

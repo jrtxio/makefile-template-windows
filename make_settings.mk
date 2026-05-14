@@ -9,38 +9,36 @@
 #    may not be provided or otherwise made available to any other person.
 #    No title to and ownership of the software is hereby transferred.
 #
-#    The information in this software is subject to change without notice 
-#    and should not be construed as a commitment by 
+#    The information in this software is subject to change without notice
+#    and should not be construed as a commitment by
 #    JRTx-Tech Technology Co. Ltd.
 #
-#    JRTx-Tech Technology Co. Ltd assumes no responsibility for the use 
-#    or reliability of its Software on equipment which is not supported by 
+#    JRTx-Tech Technology Co. Ltd assumes no responsibility for the use
+#    or reliability of its Software on equipment which is not supported by
 #    JRTx-Tech Technology Co. Ltd.
 #----------------------------------------------------------------------------
 #    Project:        Socket Double Linked List
-#    Source:         
 #    Compiler:       gcc version 8.1.0
-#    Shell:          MS-DOS
+#    Shell:          Git-Bash
 #
 #    Author:         Ji Ren
-#    Creation Date:  2022-04-12 
+#    Creation Date:  2022-04-12
 #----------------------------------------------------------------------------
-# Description: 
+# Description:
 #        This is the setting for make environment
 #
 #============================================================================
 
-# Specify the Project Directory
-PROJECT_DIR = D:/Codes/c/socketdll
+# Project root (auto-detected, or override via: make PROJECT_DIR=/your/path)
+PROJECT_DIR ?= $(CURDIR)
 
-# Specify the Compiler Directory
-INSTALL_DIR = C:/Program Files/mingw64
+# Compiler directory — override to match your MinGW installation
+INSTALL_DIR ?= C:/Program Files/mingw64
 
 #----------------------------------------------------------------------------
 #  Setup the Make Environment
 #----------------------------------------------------------------------------
 
-WORKING_DIR = $(shell $(PWD))
 TOOL_DIR = $(INSTALL_DIR)/bin
 SRC_OBJ_DIR = $(PROJECT_DIR)/Build/Obj
 SRC_DIR = $(PROJECT_DIR)/Source
@@ -62,8 +60,7 @@ APPL_SRC_DIRS = $(SRC_DIR)/main \
                 $(SRC_DIR)/socket
 
 # list of all directories where Header files could be found
-APPL_INC_DIRS = $(LIB_INC_DIR) \
-                $(SRC_DIR)/main \
+APPL_INC_DIRS = $(SRC_DIR)/main \
                 $(SRC_DIR)/socket
 
 # All object files will be copied to the OBJ_DIR
@@ -76,7 +73,7 @@ GEN_DIR = $(PROJECT_DIR)/Build/Gen
 #  Setup the filenames and lists of files used during the build
 #----------------------------------------------------------------------------
 
-# Name of the image to be created !!!
+# Name of the image to be created
 IMAGE_SRC = main
 
 #----------------------------------------------------------------------------
@@ -86,6 +83,5 @@ IMAGE_SRC = main
 # CFLAGS: Flags of C-Compiler
 X86_CFLAGS = -mthreads
 X86_CFLAGS += -fforce-addr
-
 
 # ---- End of make settings ----

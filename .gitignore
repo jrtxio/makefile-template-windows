@@ -1,0 +1,7 @@
+# Build output
+Build/Obj/*.o
+Build/Obj/*.exe
+Build/Gen/*.exe
+
+# IDE
+.vscode/*.log
